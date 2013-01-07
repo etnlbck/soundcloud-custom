@@ -1,0 +1,19 @@
+/* Soundcloud Custom */
+/* line 5, ../sc/sass/stylesheet.scss */
+#player ul {
+  list-style-type: none;
+  list-style-position: outside;
+}
+/* line 9, ../sc/sass/stylesheet.scss */
+#player ul .artwork {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  padding: 0 10px;
+}
+
+/* line 20, ../sc/sass/stylesheet.scss */
+#player_controls span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
