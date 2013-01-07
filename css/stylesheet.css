@@ -1,19 +1,57 @@
 /* Soundcloud Custom */
-/* line 5, ../sc/sass/stylesheet.scss */
+/* line 4, ../sc/sass/stylesheet.scss */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 8, ../sc/sass/stylesheet.scss */
+#player {
+  width: 500px;
+  background-color: #385398;
+  display: block;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #707070), color-stop(100%, #6b6b6b));
+  background-image: -webkit-linear-gradient(bottom, #707070, #6b6b6b);
+  background-image: -moz-linear-gradient(bottom, #707070, #6b6b6b);
+  background-image: -o-linear-gradient(bottom, #707070, #6b6b6b);
+  background-image: linear-gradient(bottom, #707070, #6b6b6b);
+}
+/* line 14, ../sc/sass/stylesheet.scss */
 #player ul {
   list-style-type: none;
   list-style-position: outside;
 }
-/* line 9, ../sc/sass/stylesheet.scss */
+/* line 19, ../sc/sass/stylesheet.scss */
+#player ul li:nth-of-type(even) {
+  background: white;
+}
+/* line 22, ../sc/sass/stylesheet.scss */
+#player ul li:hover {
+  cursor: pointer;
+}
+/* line 26, ../sc/sass/stylesheet.scss */
 #player ul .artwork {
   display: inline-block;
   width: 50px;
   height: 50px;
   padding: 0 10px;
 }
-
-/* line 20, ../sc/sass/stylesheet.scss */
-#player_controls span:hover {
+/* line 35, ../sc/sass/stylesheet.scss */
+#player #player_controls {
+  height: 50px;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  background-color: #385398;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #5f5f5f), color-stop(100%, #4a4a4a));
+  background-image: -webkit-linear-gradient(bottom, #5f5f5f, #4a4a4a);
+  background-image: -moz-linear-gradient(bottom, #5f5f5f, #4a4a4a);
+  background-image: -o-linear-gradient(bottom, #5f5f5f, #4a4a4a);
+  background-image: linear-gradient(bottom, #5f5f5f, #4a4a4a);
+}
+/* line 44, ../sc/sass/stylesheet.scss */
+#player #player_controls span:hover {
   text-decoration: underline;
   cursor: pointer;
 }

@@ -14,15 +14,13 @@ var scCustom = function(consumer_key, url, parent){
 			$.getJSON('http://api.soundcloud.com/resolve?url='+url+'&format=json&consumer_key='+consumer_key+'&callback=?', function(playlist){
 				console.log(playlist);
 				$('.title').text(playlist.tracks[0].title);
+
+				$('.artwork').attr('src', playlist.tracks[0].artwork_url);
 				$.each(playlist.tracks, function(index, track){
 
-					if(track.artwork_url != null){
-						var artwork = '<img class="artwork" src="'+track.artwork_url+'">';
-					} else {
-						var artwork = '';
-					}
+					
 
-					$('<li>'+artwork+track.title+'<a href="'+track.permalink_url+'" target="_blank">Link</a></li>').data('track',track).appendTo('.tracks');
+					$('<li>'+track.title+'<a href="'+track.permalink_url+'" target="_blank">Link</a></li>').data('track',track).appendTo('.tracks');
 
 					url = track.stream_url;
 					(url.indexOf("secret_token") == -1) ? url = url + '?' : url = url + '&';
@@ -31,7 +29,7 @@ var scCustom = function(consumer_key, url, parent){
 					soundManager.createSound({
 						id: 'track_'+track.id,
 						url: url,
-						onplay:function(){$('.player').addClass('playing'); $('.title').text(track.title);},
+						onplay:function(){$('.player').addClass('playing'); $('.title').text(track.title); $('.artwork').attr('src',track.artwork_url);},
 						onresume:function(){$('.player').addClass('playing')},
 						onpause:function(){$('.player').removeClass('playing')},
 						onfinish:function(){nextTrack();}
@@ -95,7 +93,8 @@ var scCustom = function(consumer_key, url, parent){
 
 
 $(document).ready(function(){
-
-	scCustom('ZOTSMMxRp6HD7SOgRCNlw','http://soundcloud.com/scientwist/sets/developer-playtime','#player');
+	/* scCustom(consumer_key, url, parent); */
+	$('.tracks').sortable();
+	scCustom('ZOTSMMxRp6HD7SOgRCNlw','https://soundcloud.com/riskone/sets/remixes-and-bootlegs','#player');
 });
 
